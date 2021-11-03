@@ -15,6 +15,8 @@
                 </ul>
                 <div class="card-body">
                   <a href="{{ route('comics.show', $comic['id']) }}" class="card-link">More Details</a>
+                  <a href="{{ route('comics.show', $comic['id']) }}" class="card-link">Modify</a>
+                  <a href="{{ route('comics.show', $comic['id']) }}" class="card-link">Delete</a>
                 </div>
             </div>                
             @endforeach
