@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-        <h1 class="text-white fs-1">COMICS HOME</h1>
-        <a href="{{ route('comics.index') }}"><button type="button" class="btn btn-warning btn-lg text-danger fs-2">Comics List</button></a>
+    <div class="container mt-5 d-flex flex-column align-items-center justify-content-center">
+        <img class="w-100" src="https://i.ibb.co/NSzsR6q/boolean-comics.png" alt="Logo boolean.comics">
+        <div class="banner-wrap w-100 d-flex justify-content-around align-items-center">
+            <a href="{{ route('comics.index') }}"><img class="" src="https://i.ibb.co/mGqTVFJ/banner-list.png" alt="Comics list banner"></a>
+            <a href="{{ route('comics.create') }}"><img class="" src="https://i.ibb.co/kSnYQSs/banner-insert.png" alt="Insert a comic banner"></a>            
+        </div>
 
     </div>
 @endsection
