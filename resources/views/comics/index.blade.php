@@ -13,10 +13,14 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{{$comic['price']}} $</li>
                 </ul>
-                <div class="card-body">
-                  <a href="{{ route('comics.show', $comic['id']) }}" class="card-link">More Details</a>
-                  <a href="{{ route('comics.edit', $comic['id']) }}" class="card-link">Modify</a>
-                  <a href="{{ route('comics.show', $comic['id']) }}" class="card-link">Delete</a>
+                <div class="card-body d-flex">
+                  <a class="btn btn-primary" href="{{ route('comics.show', $comic['id']) }}" class="card-link">More Details</a>
+                  <a class="btn btn-warning" href="{{ route('comics.edit', $comic['id']) }}" class="card-link">Modify</a>
+                  <form method="post" action="{{ route('comics.destroy', $comic['id']) }}">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
                 </div>
             </div>                
             @endforeach
