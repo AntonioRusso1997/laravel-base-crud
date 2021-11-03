@@ -2,6 +2,15 @@
 @section('content')
     <div class="container w-100">
         <h1 class="text-white mt-3">ADD A NEW COMIC</h1>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('comics.update', $comic['id']) }}" method="post">
           @csrf
           @method('PUT')
@@ -12,7 +21,8 @@
           </div>
           <div class="form-group">
               <label for="description">Description</label>
-              <input value="{{ $comic['description'] }}" type="text" name="description" class="form-control" id="description" placeholder="Enter comic description">
+              <textarea class="form-control" name="description" id="description">{{$comic['description']}}</textarea>
+              {{-- <input value="{{ $comic['description'] }}" type="text" name="description" class="form-control" id="description" placeholder="Enter comic description"> --}}
           </div>
           <div class="form-group">
               <label for="thumb">Thumb</label>
