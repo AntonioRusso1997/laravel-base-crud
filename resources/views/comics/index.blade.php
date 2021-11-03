@@ -16,14 +16,15 @@
                 <div class="card-body d-flex">
                   <a class="btn btn-primary" href="{{ route('comics.show', $comic['id']) }}" class="card-link">More Details</a>
                   <a class="btn btn-warning" href="{{ route('comics.edit', $comic['id']) }}" class="card-link">Modify</a>
-                  <form method="post" action="{{ route('comics.destroy', $comic['id']) }}">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <form onclick="return confirm('Vuoi veramente eliminarlo?')" method="post" action="{{ route('comics.destroy', $comic['id']) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
                   </form>
                 </div>
             </div>                
             @endforeach
         </div>
     </div>
+  
 @endsection
