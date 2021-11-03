@@ -64,7 +64,12 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $comic = Comic::find($id);
+        // if($comic) {
+        //     return view('comics.edit', compact('comic'));
+        // } abort();
+        $comic = Comic::findOrFail($id);
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -74,9 +79,12 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic['id']);        
     }
 
     /**
